@@ -1,3 +1,7 @@
+Kode til CAN-bus for STM32G431KB og STM32G431RB. Alt kan klippes og limes inn i "main.c" under de korrekte "USER CODE BEGIN...":
+
+
+
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
