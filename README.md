@@ -1,23 +1,23 @@
-# CAN-Bus-STM32G431xx
-Kode og oppsett for CAN-bus på STM32G431KB og STM32G431RB
+***# CAN-Bus-STM32G431xx***
+***Kode og oppsett for CAN-bus på STM32G431KB og STM32G431RB***
 
-Det er to alternative måter og implementere kode for CAN-bus:
+***Det er to alternative måter og implementere kode for CAN-bus:***
 
-#1 Kode for CAN-bus i main.c:
+***#1 Kode for CAN-bus i main.c:***
 Lim inn kode i main.c fra "Kode CAN-bus.c", https://github.com/UiS-Subsea/CAN-Bus-STM32G431xx/blob/main/Kode%20CAN-bus.c
 
-#2 Kode for CAN-bus i main.c:
+***#2 Kode for CAN-bus i main.c:***
 For å få CAN-bus i egen fil, sjå branch `syslak`, https://github.com/UiS-Subsea/CAN-Bus-STM32G431xx/tree/syslak
 
 
 
-KODEN NEDENFOR ER ET EKSEMPEL PÅ HVORDAN EN MELDING KAN LAGES FOR DERETTER Å SENDE DEN: 
+***KODEN NEDENFOR ER ET EKSEMPEL PÅ HVORDAN EN MELDING KAN LAGES FOR DERETTER Å SENDE DEN:*** 
 
 For å sende data: 
 
 Endre i datapakken TxData og kall opp sendCAN med ID meldingen skal til. 
 
-//   Bygger datapaken som skal sendes. Datapakken består av 8 byte. 
+```//   Bygger datapaken som skal sendes. Datapakken består av 8 byte.
 //   Koden nedenfor er bare et forslag på hvordan en datapakke kan settes sammen. 
 
 // Eksempel med 2x uint8, 1x uint16 og 1x uint32 
@@ -33,11 +33,8 @@ Endre i datapakken TxData og kall opp sendCAN med ID meldingen skal til.
   memcpy(&TxData[6], &fjerdeuint16, 2); // Kopierer 2 byte fra fjerdeuint16 til syvende og åttende byte i TxData 
 
 // Etter å ha bygget pakken, kan meldingen sendes på bussen ved å kalle opp sendCAN-funksjonen: 
-  sendCAN(ID-på-mottaker, &hfdcan1); //   ID-på-mottaker settes til ID der meldingen skal gå 
-
-    /* USER CODE END WHILE */ 
-
- 
+  sendCAN(ID-på-mottaker, &hfdcan1); //   ID-på-mottaker settes til ID der meldingen skal gå
+  ```
 
  
 For å motta data: 
