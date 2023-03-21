@@ -396,7 +396,7 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
 
         case 63: // IKKE FJERN DENNE					// Endres til 63 for Regulering, til 95 for Sensor og til 127 for Kraft.
              memcpy(&TxData, (uint8_t *) &"polo!\n", 6);
-             sendCAN(155, &hfdcan1);							// Endres til 155 for Regulering, til 156 for Sensor, til 157/158/159 for Kraft1/2/3.
+             sendCAN(155, hfdcan);							// Endres til 155 for Regulering, til 156 for Sensor, til 157/158/159 for Kraft1/2/3.
              break;
 //        case 100:	// Eksempel som kan fjernes
 //                	flagg = 1;		// Kan sette et flagg her nede visst koden som skal kjøres er lang/krevende.
